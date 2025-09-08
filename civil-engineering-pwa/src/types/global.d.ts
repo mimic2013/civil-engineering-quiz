@@ -1,4 +1,4 @@
-// Service Worker类型扩展
+// Service Worker 和 PWA 相关类型定义
 interface ServiceWorkerRegistration {
   installing: ServiceWorker | null;
   waiting: ServiceWorker | null;
@@ -30,4 +30,5 @@ interface BeforeInstallPromptEvent extends Event {
 // 扩展 WindowEventMap
 interface WindowEventMap {
   beforeinstallprompt: BeforeInstallPromptEvent;
+  appinstalled: Event;
 }
