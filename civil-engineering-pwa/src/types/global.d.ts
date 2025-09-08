@@ -16,3 +16,18 @@ interface Navigator {
 interface Window {
   __WB_MANIFEST: Array<string>;
 }
+
+// BeforeInstallPromptEvent 类型定义
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
+}
+
+// 扩展 WindowEventMap
+interface WindowEventMap {
+  beforeinstallprompt: BeforeInstallPromptEvent;
+}
